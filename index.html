@@ -12,11 +12,12 @@
     <script>
       async function subscribe() {
         let sw = await navigator.serviceWorker.ready;
-        sw.pushManager.subscribe({
+        let push = await sw.pushManager.subscribe({
           userVisibleOnly: true,
           applicationServerKey:
             "BGBreNVgk5gIg_22rcHhSXwvYM2x6-IYMcxsyKjZNK0i6CGrFr09v07W_W_qj9Rp9W7K03b7SpWJsOEzAbyLLB0"
         });
+        console.log(JSON.stringify(push));
       }
 
       if ("serviceWorker" in navigator) {
