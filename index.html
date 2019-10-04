@@ -20,8 +20,10 @@
       }
 
       if ("serviceWorker" in navigator) {
-        let sw = await navigator.serviceWorker.register("./sw.js");
-        console.log(sw);
+        addEventListener("load", async () => {
+          let sw = await navigator.serviceWorker.register("./sw.js");
+          console.log(sw);
+        });
       }
     </script>
   </body>
