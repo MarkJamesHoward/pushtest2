@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="subscribe()">Subscribe</button>
+
+    <script>
+      async function subscribe() {
+        let sw = await navigator.serviceWorker.ready;
+        sw.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey:
+            "BGBreNVgk5gIg_22rcHhSXwvYM2x6-IYMcxsyKjZNK0i6CGrFr09v07W_W_qj9Rp9W7K03b7SpWJsOEzAbyLLB0"
+        });
+      }
+
+      if ("serviceWorker" in navigator) {
+        let sw = await navigator.serviceWorker.register("./sw.js");
+        console.log(sw);
+      }
+    </script>
+  </body>
+</html>
